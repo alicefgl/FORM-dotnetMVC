@@ -25,11 +25,31 @@ Per evitare l'ultimo passaggio descritto ho creato una nuova "li" all'interno di
 All'interno di questa li specifico che la View Prenota deve essere richiamata tramite una chiamata alla Action contenuta nel Controller Home.
 
 I dati relativi alla pagina Prenota sono contenuti all'interno di una classe Prenotazione, aggiunta come nuovo Model (cartella Models).
-All'interno della classe vi sono le property relative agli attributi "Nome" ed "Email", che sono i dati che verranno inseriti dall'utente.
+All'interno della classe vi sono le property relative agli attributi, che saranno i dati che vengono inseriti dall'utente.
 ```
 public class Prenotazione
 {
-    public string? Nome { get; set; }
-    public string? Email { get; set; }
+    public string? Nome { get; set; } required
+    public string? Cognome { get; set; } required
+
+    public string? Email { get; set; } required
+    public DateTime DataDiNascita { get; set; } required
+    public Sesso _Sesso { get; set; } required
+    public Ruolo _Ruolo { get; set; }
+
+    //public string? Stampa(){
+        //var data = DataDiNascita.ToShortDateString();
+        //return "Nome" + Nome + "Cognome" + Cognome + "Email" + Email + "Data di nascita" + data + "Sesso" + Sesso + "Ruolo" + Ruolo; 
+    //}
+    public enum Sesso{
+        Maschio,
+        Femmina,
+        Non_specificato,
+    }
+        public enum Ruolo{
+        Docente,
+        Studente,
+        Genitore,
+    }
 }
 ```
