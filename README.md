@@ -37,10 +37,6 @@ public class Prenotazione
     public Sesso _Sesso { get; set; } required
     public Ruolo _Ruolo { get; set; }
 
-    //public string? Stampa(){
-        //var data = DataDiNascita.ToShortDateString();
-        //return "Nome" + Nome + "Cognome" + Cognome + "Email" + Email + "Data di nascita" + data + "Sesso" + Sesso + "Ruolo" + Ruolo; 
-    //}
     public enum Sesso{
         Maschio,
         Femmina,
