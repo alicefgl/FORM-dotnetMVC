@@ -49,3 +49,25 @@ public class Prenotazione
     }
 }
 ```
+Ho creato in seguito la pagina Conferma, all'interno della quale vengono stampati a video i dati inseriti nel form "Prenota".
+Per collegare queste due pagine si specifica nel form "Prenota" la procedura di HTTP POST verso la pagina Conferma, in questo modo:
+```   
+    <form class="m-2" method="post" asp-action="Conferma">
+```
+Il form Conferma si basa sul modello di una lista di classe Prenotazione, e stampa gli attributi della classe per ogni elemento presente nella lista.
+```
+@model List<Prenotazione>;
+@{
+    ViewData["Title"] = "Conferma";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Conferma</h1>
+    Il numero di elementi nella lista è @Model.Count </br>
+        @{
+            foreach(var item in @Model){
+                <p> Nome: @item.Nome <br> Cognome @item.Cognome <br> Email: @item.Email <br> Data di nascita: @item.DataDiNascita <br> Sesso: @item._Sesso <br> Ruolo: @item._Ruolo</p>
+            }
+        }
+</div>
+```
